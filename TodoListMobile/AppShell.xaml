@@ -4,11 +4,12 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:TodoListMobile"
+    xmlns:resources="clr-namespace:TodoListMobile.Resources.Strings"
     Shell.FlyoutBehavior="Disabled"
-    Title="TodoListMobile">
+    Title="{x:Static resources:AppResources.AppTitle}">
 
     <ShellContent
-        Title="Home"
+        Title="{x:Static resources:AppResources.HomeTitle}"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
