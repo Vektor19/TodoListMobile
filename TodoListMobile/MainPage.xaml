@@ -1,30 +1,115 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TodoListMobile.MainPage">
+             x:Class="TodoListMobile.MainPage"
+             x:Name="MainPageRoot">
 
     <ScrollView>
         <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
+            x:Name="MainLayout"
+            Padding="30,20"
+            Spacing="20"
+            HorizontalOptions="Fill">
+
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="LayoutStates">
+                    <VisualState x:Name="ExtraLargeScreen">
+                        <VisualState.Setters>
+                            <Setter TargetName="TodoIcon" Property="Image.WidthRequest" Value="200" />
+                            <Setter TargetName="TodoIcon" Property="Image.HeightRequest" Value="200" />
+                            <Setter TargetName="TaskLabel" Property="Label.FontSize" Value="28" />
+                            <Setter TargetName="TaskEntry" Property="Entry.FontSize" Value="26" />
+                            <Setter TargetName="TaskEntry" Property="Entry.HeightRequest" Value="60" />
+                            <Setter TargetName="AddTaskBtn" Property="Button.FontSize" Value="26" />
+                            <Setter TargetName="AddTaskBtn" Property="Button.HeightRequest" Value="60" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    
+                    <VisualState x:Name="LargeScreen">
+                        <VisualState.Setters>
+                            <Setter TargetName="TodoIcon" Property="Image.WidthRequest" Value="180" />
+                            <Setter TargetName="TodoIcon" Property="Image.HeightRequest" Value="180" />
+                            <Setter TargetName="TaskLabel" Property="Label.FontSize" Value="24" />
+                            <Setter TargetName="TaskEntry" Property="Entry.FontSize" Value="22" />
+                            <Setter TargetName="TaskEntry" Property="Entry.HeightRequest" Value="55" />
+                            <Setter TargetName="AddTaskBtn" Property="Button.FontSize" Value="22" />
+                            <Setter TargetName="AddTaskBtn" Property="Button.HeightRequest" Value="55" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    
+                    <VisualState x:Name="MediumScreen">
+                        <VisualState.Setters>
+                            <Setter TargetName="TodoIcon" Property="Image.WidthRequest" Value="150" />
+                            <Setter TargetName="TodoIcon" Property="Image.HeightRequest" Value="150" />
+                            <Setter TargetName="TaskLabel" Property="Label.FontSize" Value="20" />
+                            <Setter TargetName="TaskEntry" Property="Entry.FontSize" Value="18" />
+                            <Setter TargetName="TaskEntry" Property="Entry.HeightRequest" Value="50" />
+                            <Setter TargetName="AddTaskBtn" Property="Button.FontSize" Value="18" />
+                            <Setter TargetName="AddTaskBtn" Property="Button.HeightRequest" Value="50" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    
+                    <VisualState x:Name="SmallScreen">
+                        <VisualState.Setters>
+                            <Setter TargetName="TodoIcon" Property="Image.WidthRequest" Value="100" />
+                            <Setter TargetName="TodoIcon" Property="Image.HeightRequest" Value="100" />
+                            <Setter TargetName="TaskLabel" Property="Label.FontSize" Value="16" />
+                            <Setter TargetName="TaskEntry" Property="Entry.FontSize" Value="14" />
+                            <Setter TargetName="TaskEntry" Property="Entry.HeightRequest" Value="40" />
+                            <Setter TargetName="AddTaskBtn" Property="Button.FontSize" Value="14" />
+                            <Setter TargetName="AddTaskBtn" Property="Button.HeightRequest" Value="40" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+                
+                <VisualStateGroup x:Name="OrientationStates">
+                    <VisualState x:Name="Landscape">
+                        <VisualState.Setters>
+                            <Setter TargetName="TaskLabel" Property="Label.HorizontalOptions" Value="Center" />
+                            <Setter TargetName="TaskEntry" Property="Entry.HorizontalOptions" Value="Center" />
+                            <Setter TargetName="AddTaskBtn" Property="Button.HorizontalOptions" Value="Center" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    
+                    <VisualState x:Name="Portrait">
+                        <VisualState.Setters>
+                            <Setter TargetName="TaskLabel" Property="Label.HorizontalOptions" Value="Fill" />
+                            <Setter TargetName="TaskEntry" Property="Entry.HorizontalOptions" Value="Fill" />
+                            <Setter TargetName="AddTaskBtn" Property="Button.HorizontalOptions" Value="Fill" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+
+            <Image
+                x:Name="TodoIcon"
+                Source="todolist_icon.png"
+                Aspect="AspectFit"
+                HorizontalOptions="Center"
+                Margin="0,0,0,10" />
 
             <Label
-                Text="Hello!"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
-
-            <Label
+                x:Name="WelcomeLabel"
                 Text="Welcome to ToDo List"
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to ToDo List App" />
+                SemanticProperties.Description="Welcome to ToDo List App"
+                HorizontalTextAlignment="Center" />
+
+            <Label
+                x:Name="TaskLabel"
+                Text="Enter your task:"
+                Margin="0,15,0,5" />
+
+            <Entry
+                x:Name="TaskEntry"
+                Placeholder="Type your task here..." />
 
             <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Fill" />
+                x:Name="AddTaskBtn"
+                Text="Add Task"
+                Margin="0,10,0,0" />
+
         </VerticalStackLayout>
     </ScrollView>
 
