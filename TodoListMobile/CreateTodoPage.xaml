@@ -65,7 +65,7 @@
 
                 <Button
                     x:Name="AddTaskBtn"
-                    Text="{x:Static resources:AppResources.AddTaskButton}"
+                    Text="{Binding AddButtonText}"
                     Style="{StaticResource AddTaskButtonStyle}"
                     IsEnabled="{Binding IsAddButtonEnabled}"
                     Clicked="OnAddTaskClicked" />

@@ -1,3 +1,5 @@
+using TodoListMobile.Models;
+using TodoListMobile.Resources.Strings;
 using TodoListMobile.Validators;
 
 namespace TodoListMobile.ViewModels
@@ -8,6 +10,8 @@ namespace TodoListMobile.ViewModels
         private string _title = string.Empty;
         private string _description = string.Empty;
         private DateTime _dueDate = DateTime.Today;
+        private TodoItem? _editingItem;
+        private bool _isEditing;
 
         public string Title
         {
@@ -47,11 +51,57 @@ namespace TodoListMobile.ViewModels
 
         public bool IsAddButtonEnabled => _validator.IsTaskValid(Title, Description, DueDate);
 
+        public bool IsEditing
+        {
+            get => _isEditing;
+            private set
+            {
+                if (SetProperty(ref _isEditing, value))
+                {
+                    OnPropertyChanged(nameof(AddButtonText));
+                }
+            }
+        }
+
+        public string AddButtonText => IsEditing ? AppResources.SaveChangesButton : AppResources.AddTaskButton;
+
+        public void BeginEdit(TodoItem item)
+        {
+            _editingItem = item;
+            Title = item.Title;
+            Description = item.Description;
+            DueDate = item.DueDate;
+            IsEditing = true;
+        }
+
+        public void Save()
+        {
+            if (_editingItem is null)
+            {
+                TodoItemStore.Items.Add(new TodoItem
+                {
+                    Title = Title,
+                    Description = Description,
+                    DueDate = DueDate
+                });
+            }
+            else
+            {
+                _editingItem.Title = Title;
+                _editingItem.Description = Description;
+                _editingItem.DueDate = DueDate;
+                _editingItem = null;
+                IsEditing = false;
+            }
+        }
+
         public void Reset()
         {
             Title = string.Empty;
             Description = string.Empty;
             DueDate = DateTime.Today;
+            _editingItem = null;
+            IsEditing = false;
         }
     }
 }

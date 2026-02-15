@@ -88,6 +88,9 @@
   <data name="AddTaskButton" xml:space="preserve">
     <value>Add Task</value>
   </data>
+  <data name="SaveChangesButton" xml:space="preserve">
+    <value>Save Changes</value>
+  </data>
   <data name="AddNewTaskButton" xml:space="preserve">
     <value>Add new task</value>
   </data>

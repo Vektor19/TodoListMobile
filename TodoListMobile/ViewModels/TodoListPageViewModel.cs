@@ -1,27 +1,45 @@
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using TodoListMobile.Models;
+
 namespace TodoListMobile.ViewModels
 {
     public class TodoListPageViewModel : BaseViewModel
     {
-        private string _title = string.Empty;
-        private string _description = string.Empty;
-        private DateTime _dueDate = DateTime.Today;
+        public ObservableCollection<TodoItem> Items => TodoItemStore.Items;
 
-        public string Title
+        public ICommand EditCommand { get; }
+
+        public ICommand DeleteCommand { get; }
+
+        public TodoListPageViewModel()
         {
-            get => _title;
-            set => SetProperty(ref _title, value);
+            EditCommand = new Command<TodoItem>(async item => await EditItemAsync(item));
+            DeleteCommand = new Command<TodoItem>(DeleteItem);
         }
 
-        public string Description
+        private async Task EditItemAsync(TodoItem? item)
         {
-            get => _description;
-            set => SetProperty(ref _description, value);
+            if (item is null)
+            {
+                return;
+            }
+
+            await Shell.Current.GoToAsync(nameof(CreateTodoPage), true, new Dictionary<string, object>
+            {
+                ["TodoItem"] = item
+            });
         }
 
-        public DateTime DueDate
+        private void DeleteItem(TodoItem? item)
         {
-            get => _dueDate;
-            set => SetProperty(ref _dueDate, value);
+            if (item is null)
+            {
+                return;
+            }
+
+            TodoItemStore.Items.Remove(item);
         }
     }
 }

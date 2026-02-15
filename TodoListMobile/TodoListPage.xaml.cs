@@ -1,35 +1,12 @@
 namespace TodoListMobile
 {
-    public partial class TodoListPage : ContentPage, IQueryAttributable
+    public partial class TodoListPage : ContentPage
     {
         public TodoListPage()
         {
             InitializeComponent();
             SizeChanged += OnPageSizeChanged;
             UpdateVisualState();
-        }
-
-        public void ApplyQueryAttributes(IDictionary<string, object> query)
-        {
-            if (BindingContext is not ViewModels.TodoListPageViewModel viewModel)
-            {
-                return;
-            }
-
-            if (query.TryGetValue("Title", out var title) && title is string titleValue)
-            {
-                viewModel.Title = titleValue;
-            }
-
-            if (query.TryGetValue("Description", out var description) && description is string descriptionValue)
-            {
-                viewModel.Description = descriptionValue;
-            }
-
-            if (query.TryGetValue("DueDate", out var dueDate) && dueDate is DateTime dueDateValue)
-            {
-                viewModel.DueDate = dueDateValue;
-            }
         }
 
         private async void OnAddNewClicked(object sender, EventArgs e)

@@ -1,12 +1,25 @@
 namespace TodoListMobile
 {
-    public partial class CreateTodoPage : ContentPage
+    public partial class CreateTodoPage : ContentPage, IQueryAttributable
     {
         public CreateTodoPage()
         {
             InitializeComponent();
             SizeChanged += OnPageSizeChanged;
             UpdateVisualState();
+        }
+
+        public void ApplyQueryAttributes(IDictionary<string, object> query)
+        {
+            if (BindingContext is not ViewModels.CreateTodoViewModel viewModel)
+            {
+                return;
+            }
+
+            if (query.TryGetValue("TodoItem", out var item) && item is Models.TodoItem todoItem)
+            {
+                viewModel.BeginEdit(todoItem);
+            }
         }
 
         private async void OnAddTaskClicked(object sender, EventArgs e)
@@ -30,18 +43,18 @@ namespace TodoListMobile
                 return;
             }
 
-            await Shell.Current.GoToAsync("..", true, new Dictionary<string, object>
-            {
-                ["Title"] = viewModel.Title,
-                ["Description"] = viewModel.Description,
-                ["DueDate"] = viewModel.DueDate
-            });
-
+            viewModel.Save();
+            await Shell.Current.GoToAsync("..", true);
             viewModel.Reset();
         }
 
         private async void OnBackClicked(object sender, EventArgs e)
         {
+            if (BindingContext is ViewModels.CreateTodoViewModel viewModel)
+            {
+                viewModel.Reset();
+            }
+
             await Shell.Current.GoToAsync("..");
         }
 

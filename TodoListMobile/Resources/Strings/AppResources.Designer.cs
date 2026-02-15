@@ -61,20 +61,20 @@ namespace TodoListMobile.Resources.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add Task.
-        /// </summary>
-        internal static string AddTaskButton {
-            get {
-                return ResourceManager.GetString("AddTaskButton", resourceCulture);
-            }
-        }
-
-        /// <summary>
         ///   Looks up a localized string similar to Add new task.
         /// </summary>
         internal static string AddNewTaskButton {
             get {
                 return ResourceManager.GetString("AddNewTaskButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Task.
+        /// </summary>
+        internal static string AddTaskButton {
+            get {
+                return ResourceManager.GetString("AddTaskButton", resourceCulture);
             }
         }
         
@@ -86,7 +86,7 @@ namespace TodoListMobile.Resources.Strings {
                 return ResourceManager.GetString("AppTitle", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Back.
         /// </summary>
@@ -104,7 +104,7 @@ namespace TodoListMobile.Resources.Strings {
                 return ResourceManager.GetString("ChooseDueDateLabel", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Current task.
         /// </summary>
@@ -147,6 +147,15 @@ namespace TodoListMobile.Resources.Strings {
         internal static string HomeTitle {
             get {
                 return ResourceManager.GetString("HomeTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Changes.
+        /// </summary>
+        internal static string SaveChangesButton {
+            get {
+                return ResourceManager.GetString("SaveChangesButton", resourceCulture);
             }
         }
         
