@@ -8,7 +8,7 @@ namespace TodoListMobile.Models
         private string _description = string.Empty;
         private DateTime _dueDate = DateTime.Today;
         private string? _image;
-        private TodoStatus _status = TodoStatus.Todo;
+        private bool _isDone;
 
         public string Title
         {
@@ -34,10 +34,10 @@ namespace TodoListMobile.Models
             set => SetProperty(ref _image, value);
         }
 
-        public TodoStatus Status
+        public bool IsDone
         {
-            get => _status;
-            set => SetProperty(ref _status, value);
+            get => _isDone;
+            set => SetProperty(ref _isDone, value);
         }
     }
 }

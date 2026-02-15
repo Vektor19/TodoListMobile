@@ -26,34 +26,58 @@
                 Text="{x:Static resources:AppResources.CurrentTaskHeader}"
                 Style="{StaticResource WelcomeLabelStyle}" />
 
+            <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                <CheckBox IsChecked="{Binding HideCompleted}" VerticalOptions="Center" />
+                <Label Text="Hide done" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
             <VerticalStackLayout x:Name="FormContainer">
-                <CollectionView ItemsSource="{Binding Items}">
+                <CollectionView ItemsSource="{Binding VisibleItems}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="models:TodoItem">
                             <Frame Margin="0,0,0,12" Padding="12">
-                                <VerticalStackLayout Spacing="6">
+                                <Grid ColumnDefinitions="Auto,*,Auto,Auto" ColumnSpacing="12" VerticalOptions="Center">
+                                    <CheckBox
+                                        Grid.Column="0"
+                                        IsChecked="{Binding IsDone}"
+                                        VerticalOptions="Center" />
+
                                     <Label
+                                        Grid.Column="1"
                                         Text="{Binding Title}"
-                                        Style="{StaticResource TaskLabelStyle}" />
+                                        Style="{StaticResource TaskLabelStyle}"
+                                        FontAttributes="Bold"
+                                        VerticalOptions="Center"
+                                        VerticalTextAlignment="Center">
+                                        <Label.Triggers>
+                                            <DataTrigger TargetType="Label" Binding="{Binding IsDone}" Value="True">
+                                                <Setter Property="TextDecorations" Value="Strikethrough" />
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
 
-                                    <Label Text="{Binding Description}" />
+                                    <ImageButton
+                                        Grid.Column="2"
+                                        Source="edit.svg"
+                                        Padding="0"
+                                        BackgroundColor="Transparent"
+                                        WidthRequest="20"
+                                        HeightRequest="20"
+                                        Command="{Binding BindingContext.EditCommand, Source={x:Reference TodoListPageRoot}}"
+                                        CommandParameter="{Binding .}"
+                                        VerticalOptions="Center" />
 
-                                    <Label Text="{Binding DueDate, StringFormat='Due date: {0:d}'}" />
-
-                                    <Label Text="{Binding Status}" />
-
-                                    <HorizontalStackLayout Spacing="12">
-                                        <Button
-                                            Text="Edit"
-                                            Command="{Binding BindingContext.EditCommand, Source={x:Reference TodoListPageRoot}}"
-                                            CommandParameter="{Binding .}" />
-
-                                        <Button
-                                            Text="Delete"
-                                            Command="{Binding BindingContext.DeleteCommand, Source={x:Reference TodoListPageRoot}}"
-                                            CommandParameter="{Binding .}" />
-                                    </HorizontalStackLayout>
-                                </VerticalStackLayout>
+                                    <ImageButton
+                                        Grid.Column="3"
+                                        Source="trash.svg"
+                                        Padding="0"
+                                        BackgroundColor="Transparent"
+                                        WidthRequest="20"
+                                        HeightRequest="20"
+                                        Command="{Binding BindingContext.DeleteCommand, Source={x:Reference TodoListPageRoot}}"
+                                        CommandParameter="{Binding .}"
+                                        VerticalOptions="Center" />
+                                </Grid>
                             </Frame>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
