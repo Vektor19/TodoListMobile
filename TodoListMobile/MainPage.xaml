@@ -4,6 +4,7 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:resources="clr-namespace:TodoListMobile.Resources.Strings"
              xmlns:viewmodels="clr-namespace:TodoListMobile.ViewModels"
+             xmlns:constants="clr-namespace:TodoListMobile.Constants"
              x:Class="TodoListMobile.MainPage"
              x:Name="MainPageRoot">
 
@@ -36,6 +37,7 @@
                 <Entry
                     x:Name="TitleEntry"
                     Text="{Binding Title}"
+                    MaxLength="{x:Static constants:ValidationConstants.MaxTitleLength}"
                     Placeholder="{x:Static resources:AppResources.TitlePlaceholder}" />
 
                 <Label
@@ -43,9 +45,12 @@
                     Text="{x:Static resources:AppResources.EnterDescriptionLabel}"
                     Style="{StaticResource TaskLabelStyle}" />
 
-                <Entry
+                <Editor
                     x:Name="DescriptionEntry"
                     Text="{Binding Description}"
+                    MaxLength="{x:Static constants:ValidationConstants.MaxDescriptionLength}"
+                    HeightRequest="100"
+                    AutoSize="TextChanges"
                     Placeholder="{x:Static resources:AppResources.DescriptionPlaceholder}" />
 
                 <Label

@@ -1,22 +1,26 @@
+using TodoListMobile.Constants;
+
 namespace TodoListMobile.Validators
 {
     public class TaskValidator
     {
         public bool IsTaskValid(string title, string description, DateTime dueDate)
         {
-            return !string.IsNullOrWhiteSpace(title) &&
-                   !string.IsNullOrWhiteSpace(description) &&
-                   dueDate >= DateTime.Today;
+            return IsTitleValid(title) &&
+                   IsDescriptionValid(description) &&
+                   IsDueDateValid(dueDate);
         }
 
         public bool IsTitleValid(string title)
         {
-            return !string.IsNullOrWhiteSpace(title);
+            return !string.IsNullOrWhiteSpace(title) &&
+                   title.Length <= ValidationConstants.MaxTitleLength;
         }
 
         public bool IsDescriptionValid(string description)
         {
-            return !string.IsNullOrWhiteSpace(description);
+            return !string.IsNullOrWhiteSpace(description) &&
+                   description.Length <= ValidationConstants.MaxDescriptionLength;
         }
 
         public bool IsDueDateValid(DateTime dueDate)
