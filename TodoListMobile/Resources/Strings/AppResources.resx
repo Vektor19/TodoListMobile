@@ -67,11 +67,20 @@
   <data name="WelcomeDescription" xml:space="preserve">
     <value>Welcome to ToDo List App</value>
   </data>
-  <data name="EnterTaskLabel" xml:space="preserve">
-    <value>Enter your task:</value>
+  <data name="EnterTitleLabel" xml:space="preserve">
+    <value>Enter title</value>
   </data>
-  <data name="TaskPlaceholder" xml:space="preserve">
-    <value>Type your task here...</value>
+  <data name="TitlePlaceholder" xml:space="preserve">
+    <value>Task title</value>
+  </data>
+  <data name="EnterDescriptionLabel" xml:space="preserve">
+    <value>Enter description</value>
+  </data>
+  <data name="DescriptionPlaceholder" xml:space="preserve">
+    <value>Task description</value>
+  </data>
+  <data name="ChooseDueDateLabel" xml:space="preserve">
+    <value>Choose due date</value>
   </data>
   <data name="AddTaskButton" xml:space="preserve">
     <value>Add Task</value>

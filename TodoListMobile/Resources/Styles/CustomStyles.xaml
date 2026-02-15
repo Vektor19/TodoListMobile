@@ -31,45 +31,33 @@
                         <VisualState.Setters>
                             <Setter TargetName="TodoIcon" Property="Image.WidthRequest" Value="200" />
                             <Setter TargetName="TodoIcon" Property="Image.HeightRequest" Value="200" />
-                            <Setter TargetName="TaskLabel" Property="Label.FontSize" Value="28" />
-                            <Setter TargetName="TaskEntry" Property="Entry.FontSize" Value="26" />
-                            <Setter TargetName="TaskEntry" Property="Entry.HeightRequest" Value="60" />
                             <Setter TargetName="AddTaskBtn" Property="Button.FontSize" Value="26" />
                             <Setter TargetName="AddTaskBtn" Property="Button.HeightRequest" Value="60" />
                         </VisualState.Setters>
                     </VisualState>
-                    
+
                     <VisualState x:Name="LargeScreen">
                         <VisualState.Setters>
                             <Setter TargetName="TodoIcon" Property="Image.WidthRequest" Value="180" />
                             <Setter TargetName="TodoIcon" Property="Image.HeightRequest" Value="180" />
-                            <Setter TargetName="TaskLabel" Property="Label.FontSize" Value="24" />
-                            <Setter TargetName="TaskEntry" Property="Entry.FontSize" Value="22" />
-                            <Setter TargetName="TaskEntry" Property="Entry.HeightRequest" Value="55" />
                             <Setter TargetName="AddTaskBtn" Property="Button.FontSize" Value="22" />
                             <Setter TargetName="AddTaskBtn" Property="Button.HeightRequest" Value="55" />
                         </VisualState.Setters>
                     </VisualState>
-                    
+
                     <VisualState x:Name="MediumScreen">
                         <VisualState.Setters>
                             <Setter TargetName="TodoIcon" Property="Image.WidthRequest" Value="150" />
                             <Setter TargetName="TodoIcon" Property="Image.HeightRequest" Value="150" />
-                            <Setter TargetName="TaskLabel" Property="Label.FontSize" Value="20" />
-                            <Setter TargetName="TaskEntry" Property="Entry.FontSize" Value="18" />
-                            <Setter TargetName="TaskEntry" Property="Entry.HeightRequest" Value="50" />
                             <Setter TargetName="AddTaskBtn" Property="Button.FontSize" Value="18" />
                             <Setter TargetName="AddTaskBtn" Property="Button.HeightRequest" Value="50" />
                         </VisualState.Setters>
                     </VisualState>
-                    
+
                     <VisualState x:Name="SmallScreen">
                         <VisualState.Setters>
                             <Setter TargetName="TodoIcon" Property="Image.WidthRequest" Value="100" />
                             <Setter TargetName="TodoIcon" Property="Image.HeightRequest" Value="100" />
-                            <Setter TargetName="TaskLabel" Property="Label.FontSize" Value="16" />
-                            <Setter TargetName="TaskEntry" Property="Entry.FontSize" Value="14" />
-                            <Setter TargetName="TaskEntry" Property="Entry.HeightRequest" Value="40" />
                             <Setter TargetName="AddTaskBtn" Property="Button.FontSize" Value="14" />
                             <Setter TargetName="AddTaskBtn" Property="Button.HeightRequest" Value="40" />
                         </VisualState.Setters>
@@ -79,16 +67,14 @@
                 <VisualStateGroup x:Name="OrientationStates">
                     <VisualState x:Name="Landscape">
                         <VisualState.Setters>
-                            <Setter TargetName="TaskLabel" Property="Label.HorizontalOptions" Value="Center" />
-                            <Setter TargetName="TaskEntry" Property="Entry.HorizontalOptions" Value="Center" />
+                            <Setter TargetName="FormContainer" Property="VerticalStackLayout.HorizontalOptions" Value="Center" />
                             <Setter TargetName="AddTaskBtn" Property="Button.HorizontalOptions" Value="Center" />
                         </VisualState.Setters>
                     </VisualState>
-                    
+
                     <VisualState x:Name="Portrait">
                         <VisualState.Setters>
-                            <Setter TargetName="TaskLabel" Property="Label.HorizontalOptions" Value="Fill" />
-                            <Setter TargetName="TaskEntry" Property="Entry.HorizontalOptions" Value="Fill" />
+                            <Setter TargetName="FormContainer" Property="VerticalStackLayout.HorizontalOptions" Value="Fill" />
                             <Setter TargetName="AddTaskBtn" Property="Button.HorizontalOptions" Value="Fill" />
                         </VisualState.Setters>
                     </VisualState>

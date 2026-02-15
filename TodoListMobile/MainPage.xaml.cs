@@ -41,15 +41,11 @@
 
             if (orientationState == "Landscape")
             {
-                TaskLabel.WidthRequest = width * 0.65;
-                TaskEntry.WidthRequest = width * 0.65;
-                AddTaskBtn.WidthRequest = width * 0.65;
+                FormContainer.WidthRequest = width * 0.65;
             }
             else
             {
-                TaskLabel.WidthRequest = -1;
-                TaskEntry.WidthRequest = -1;
-                AddTaskBtn.WidthRequest = -1;
+                FormContainer.WidthRequest = -1;
             }
         }
     }

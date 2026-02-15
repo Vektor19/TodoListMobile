@@ -79,11 +79,38 @@ namespace TodoListMobile.Resources.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter your task:.
+        ///   Looks up a localized string similar to Choose due date.
         /// </summary>
-        internal static string EnterTaskLabel {
+        internal static string ChooseDueDateLabel {
             get {
-                return ResourceManager.GetString("EnterTaskLabel", resourceCulture);
+                return ResourceManager.GetString("ChooseDueDateLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task description.
+        /// </summary>
+        internal static string DescriptionPlaceholder {
+            get {
+                return ResourceManager.GetString("DescriptionPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter description.
+        /// </summary>
+        internal static string EnterDescriptionLabel {
+            get {
+                return ResourceManager.GetString("EnterDescriptionLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter title.
+        /// </summary>
+        internal static string EnterTitleLabel {
+            get {
+                return ResourceManager.GetString("EnterTitleLabel", resourceCulture);
             }
         }
         
@@ -97,11 +124,11 @@ namespace TodoListMobile.Resources.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Type your task here....
+        ///   Looks up a localized string similar to Task title.
         /// </summary>
-        internal static string TaskPlaceholder {
+        internal static string TitlePlaceholder {
             get {
-                return ResourceManager.GetString("TaskPlaceholder", resourceCulture);
+                return ResourceManager.GetString("TitlePlaceholder", resourceCulture);
             }
         }
         

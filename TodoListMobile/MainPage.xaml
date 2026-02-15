@@ -21,19 +21,38 @@
                 Style="{StaticResource WelcomeLabelStyle}"
                 SemanticProperties.Description="{x:Static resources:AppResources.WelcomeDescription}" />
 
-            <Label
-                x:Name="TaskLabel"
-                Text="{x:Static resources:AppResources.EnterTaskLabel}"
-                Style="{StaticResource TaskLabelStyle}" />
+            <VerticalStackLayout x:Name="FormContainer">
+                <Label
+                    x:Name="TitleLabel"
+                    Text="{x:Static resources:AppResources.EnterTitleLabel}"
+                    Style="{StaticResource TaskLabelStyle}" />
 
-            <Entry
-                x:Name="TaskEntry"
-                Placeholder="{x:Static resources:AppResources.TaskPlaceholder}" />
+                <Entry
+                    x:Name="TitleEntry"
+                    Placeholder="{x:Static resources:AppResources.TitlePlaceholder}" />
 
-            <Button
-                x:Name="AddTaskBtn"
-                Text="{x:Static resources:AppResources.AddTaskButton}"
-                Style="{StaticResource AddTaskButtonStyle}" />
+                <Label
+                    x:Name="DescriptionLabel"
+                    Text="{x:Static resources:AppResources.EnterDescriptionLabel}"
+                    Style="{StaticResource TaskLabelStyle}" />
+
+                <Entry
+                    x:Name="DescriptionEntry"
+                    Placeholder="{x:Static resources:AppResources.DescriptionPlaceholder}" />
+
+                <Label
+                    x:Name="DueDateLabel"
+                    Text="{x:Static resources:AppResources.ChooseDueDateLabel}"
+                    Style="{StaticResource TaskLabelStyle}" />
+
+                <DatePicker
+                    x:Name="DueDatePicker" />
+
+                <Button
+                    x:Name="AddTaskBtn"
+                    Text="{x:Static resources:AppResources.AddTaskButton}"
+                    Style="{StaticResource AddTaskButtonStyle}" />
+            </VerticalStackLayout>
 
         </VerticalStackLayout>
     </ScrollView>
