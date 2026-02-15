@@ -1,15 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:resources="clr-namespace:TodoListMobile.Resources.Strings"
              xmlns:viewmodels="clr-namespace:TodoListMobile.ViewModels"
              xmlns:constants="clr-namespace:TodoListMobile.Constants"
-             x:Class="TodoListMobile.MainPage"
-             x:Name="MainPageRoot">
+             x:Class="TodoListMobile.CreateTodoPage"
+             x:Name="CreateTodoPageRoot">
 
     <ContentPage.BindingContext>
-        <viewmodels:MainPageViewModel />
+        <viewmodels:CreateTodoViewModel />
     </ContentPage.BindingContext>
 
     <ScrollView>
@@ -67,8 +67,14 @@
                     x:Name="AddTaskBtn"
                     Text="{x:Static resources:AppResources.AddTaskButton}"
                     Style="{StaticResource AddTaskButtonStyle}"
-                    Command="{Binding AddTaskCommand}"
-                    IsEnabled="{Binding IsAddButtonEnabled}" />
+                    IsEnabled="{Binding IsAddButtonEnabled}"
+                    Clicked="OnAddTaskClicked" />
+
+                <Button
+                    x:Name="BackBtn"
+                    Text="{x:Static resources:AppResources.BackButton}"
+                    Style="{StaticResource AddTaskButtonStyle}"
+                    Clicked="OnBackClicked" />
             </VerticalStackLayout>
 
         </VerticalStackLayout>

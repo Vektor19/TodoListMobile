@@ -68,6 +68,15 @@ namespace TodoListMobile.Resources.Strings {
                 return ResourceManager.GetString("AddTaskButton", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Add new task.
+        /// </summary>
+        internal static string AddNewTaskButton {
+            get {
+                return ResourceManager.GetString("AddNewTaskButton", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to TodoListMobile.
@@ -77,6 +86,15 @@ namespace TodoListMobile.Resources.Strings {
                 return ResourceManager.GetString("AppTitle", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Back.
+        /// </summary>
+        internal static string BackButton {
+            get {
+                return ResourceManager.GetString("BackButton", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Choose due date.
@@ -84,6 +102,15 @@ namespace TodoListMobile.Resources.Strings {
         internal static string ChooseDueDateLabel {
             get {
                 return ResourceManager.GetString("ChooseDueDateLabel", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Current task.
+        /// </summary>
+        internal static string CurrentTaskHeader {
+            get {
+                return ResourceManager.GetString("CurrentTaskHeader", resourceCulture);
             }
         }
         

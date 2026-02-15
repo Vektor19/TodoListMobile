@@ -10,7 +10,7 @@
 
     <ShellContent
         Title="{x:Static resources:AppResources.HomeTitle}"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        ContentTemplate="{DataTemplate local:TodoListPage}"
+        Route="TodoListPage" />
 
 </Shell>

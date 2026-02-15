@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:TodoListMobile.Resources.Strings"
+             xmlns:viewmodels="clr-namespace:TodoListMobile.ViewModels"
+             x:Class="TodoListMobile.TodoListPage"
+             x:Name="TodoListPageRoot">
+
+    <ContentPage.BindingContext>
+        <viewmodels:TodoListPageViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout
+            x:Name="MainLayout"
+            Style="{StaticResource MainLayoutStyle}">
+
+            <Image
+                x:Name="TodoIcon"
+                Source="todolist_icon.png"
+                Style="{StaticResource TodoIconStyle}" />
+
+            <Label
+                x:Name="WelcomeLabel"
+                Text="{x:Static resources:AppResources.CurrentTaskHeader}"
+                Style="{StaticResource WelcomeLabelStyle}" />
+
+            <VerticalStackLayout x:Name="FormContainer">
+                <Label
+                    Text="{Binding Title, StringFormat='Title: {0}'}"
+                    Style="{StaticResource TaskLabelStyle}" />
+
+                <Label
+                    Text="{Binding Description, StringFormat='Description: {0}'}" />
+
+                <Label
+                    Text="{Binding DueDate, StringFormat='Due date: {0:d}'}" />
+            </VerticalStackLayout>
+
+            <Button
+                x:Name="AddTaskBtn"
+                Text="{x:Static resources:AppResources.AddNewTaskButton}"
+                Style="{StaticResource AddTaskButtonStyle}"
+                Clicked="OnAddNewClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

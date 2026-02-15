@@ -82,8 +82,17 @@
   <data name="ChooseDueDateLabel" xml:space="preserve">
     <value>Choose due date</value>
   </data>
+  <data name="CurrentTaskHeader" xml:space="preserve">
+    <value>Current task</value>
+  </data>
   <data name="AddTaskButton" xml:space="preserve">
     <value>Add Task</value>
+  </data>
+  <data name="AddNewTaskButton" xml:space="preserve">
+    <value>Add new task</value>
+  </data>
+  <data name="BackButton" xml:space="preserve">
+    <value>Back</value>
   </data>
   <data name="HomeTitle" xml:space="preserve">
     <value>Home</value>
