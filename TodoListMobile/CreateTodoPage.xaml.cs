@@ -43,7 +43,7 @@ namespace TodoListMobile
                 return;
             }
 
-            viewModel.Save();
+            await viewModel.SaveAsync();
             await Shell.Current.GoToAsync("..", true);
             viewModel.Reset();
         }

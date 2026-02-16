@@ -85,8 +85,14 @@
   <data name="CurrentTaskHeader" xml:space="preserve">
     <value>Current task</value>
   </data>
+  <data name="HideDoneLabel" xml:space="preserve">
+    <value>Hide done</value>
+  </data>
   <data name="AddTaskButton" xml:space="preserve">
     <value>Add Task</value>
+  </data>
+  <data name="ClearAllButton" xml:space="preserve">
+    <value>Clear all</value>
   </data>
   <data name="SaveChangesButton" xml:space="preserve">
     <value>Save Changes</value>

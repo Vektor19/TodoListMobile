@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using TodoListMobile.Models;
 using TodoListMobile.Resources.Strings;
 using TodoListMobile.Validators;
@@ -74,22 +75,25 @@ namespace TodoListMobile.ViewModels
             IsEditing = true;
         }
 
-        public void Save()
+        public async Task SaveAsync()
         {
             if (_editingItem is null)
             {
-                TodoItemStore.Items.Add(new TodoItem
+                var newItem = new TodoItem
                 {
                     Title = Title,
                     Description = Description,
                     DueDate = DueDate
-                });
+                };
+
+                await TodoItemStore.AddOrUpdateAsync(newItem);
             }
             else
             {
                 _editingItem.Title = Title;
                 _editingItem.Description = Description;
                 _editingItem.DueDate = DueDate;
+                await TodoItemStore.AddOrUpdateAsync(_editingItem);
                 _editingItem = null;
                 IsEditing = false;
             }

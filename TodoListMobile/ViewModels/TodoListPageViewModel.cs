@@ -19,6 +19,8 @@ namespace TodoListMobile.ViewModels
 
         public ICommand DeleteCommand { get; }
 
+        public ICommand ClearCommand { get; }
+
         public bool HideCompleted
         {
             get => _hideCompleted;
@@ -34,7 +36,8 @@ namespace TodoListMobile.ViewModels
         public TodoListPageViewModel()
         {
             EditCommand = new Command<TodoItem>(async item => await EditItemAsync(item));
-            DeleteCommand = new Command<TodoItem>(DeleteItem);
+            DeleteCommand = new Command<TodoItem>(async item => await DeleteItemAsync(item));
+            ClearCommand = new Command(async () => await ClearItemsAsync());
             TodoItemStore.Items.CollectionChanged += OnItemsCollectionChanged;
             foreach (var item in TodoItemStore.Items)
             {
@@ -77,11 +80,12 @@ namespace TodoListMobile.ViewModels
             RefreshVisibleItems();
         }
 
-        private void OnItemPropertyChanged(object? sender, PropertyChangedEventArgs e)
+        private async void OnItemPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(TodoItem.IsDone))
+            if (e.PropertyName == nameof(TodoItem.IsDone) && sender is TodoItem item)
             {
                 RefreshVisibleItems();
+                await TodoItemStore.AddOrUpdateAsync(item);
             }
         }
 
@@ -98,14 +102,20 @@ namespace TodoListMobile.ViewModels
             });
         }
 
-        private void DeleteItem(TodoItem? item)
+        private async Task DeleteItemAsync(TodoItem? item)
         {
             if (item is null)
             {
                 return;
             }
 
-            TodoItemStore.Items.Remove(item);
+            await TodoItemStore.DeleteAsync(item);
+        }
+
+        private async Task ClearItemsAsync()
+        {
+            await TodoItemStore.ClearAsync();
+            RefreshVisibleItems();
         }
     }
 }

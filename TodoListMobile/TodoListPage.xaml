@@ -26,9 +26,13 @@
                 Text="{x:Static resources:AppResources.CurrentTaskHeader}"
                 Style="{StaticResource WelcomeLabelStyle}" />
 
-            <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+            <HorizontalStackLayout Spacing="12" VerticalOptions="Center">
                 <CheckBox IsChecked="{Binding HideCompleted}" VerticalOptions="Center" />
-                <Label Text="Hide done" VerticalOptions="Center" />
+                <Label Text="{x:Static resources:AppResources.HideDoneLabel}" VerticalOptions="Center" />
+                <Button
+                    Text="{x:Static resources:AppResources.ClearAllButton}"
+                    Command="{Binding ClearCommand}"
+                    VerticalOptions="Center" />
             </HorizontalStackLayout>
 
             <VerticalStackLayout x:Name="FormContainer">

@@ -106,6 +106,15 @@ namespace TodoListMobile.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clear all.
+        /// </summary>
+        internal static string ClearAllButton {
+            get {
+                return ResourceManager.GetString("ClearAllButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current task.
         /// </summary>
         internal static string CurrentTaskHeader {
@@ -138,6 +147,15 @@ namespace TodoListMobile.Resources.Strings {
         internal static string EnterTitleLabel {
             get {
                 return ResourceManager.GetString("EnterTitleLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide done.
+        /// </summary>
+        internal static string HideDoneLabel {
+            get {
+                return ResourceManager.GetString("HideDoneLabel", resourceCulture);
             }
         }
         

@@ -1,14 +1,23 @@
+using SQLite;
 using TodoListMobile.ViewModels;
 
 namespace TodoListMobile.Models
 {
     public class TodoItem : BaseViewModel
     {
+        private int _id;
         private string _title = string.Empty;
         private string _description = string.Empty;
         private DateTime _dueDate = DateTime.Today;
         private string? _image;
         private bool _isDone;
+
+        [PrimaryKey, AutoIncrement]
+        public int Id
+        {
+            get => _id;
+            set => SetProperty(ref _id, value);
+        }
 
         public string Title
         {

@@ -2,6 +2,12 @@ namespace TodoListMobile
 {
     public partial class TodoListPage : ContentPage
     {
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await Models.TodoItemStore.InitializeAsync();
+        }
+
         public TodoListPage()
         {
             InitializeComponent();
