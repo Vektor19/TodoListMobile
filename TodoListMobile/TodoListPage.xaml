@@ -40,14 +40,29 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="models:TodoItem">
                             <Frame Margin="0,0,0,12" Padding="12">
-                                <Grid ColumnDefinitions="Auto,*,Auto,Auto" ColumnSpacing="12" VerticalOptions="Center">
-                                    <CheckBox
+                                <Grid ColumnDefinitions="50,Auto,*,Auto,Auto" ColumnSpacing="12" VerticalOptions="Center">
+                                    <Image
                                         Grid.Column="0"
+                                        WidthRequest="50"
+                                        HeightRequest="50"
+                                        Aspect="AspectFill"
+                                        VerticalOptions="Center">
+                                        <Image.Source>
+                                            <Binding Path="Image">
+                                                <Binding.TargetNullValue>
+                                                    <FileImageSource File="todolist_icon.png" />
+                                                </Binding.TargetNullValue>
+                                            </Binding>
+                                        </Image.Source>
+                                    </Image>
+
+                                    <CheckBox
+                                        Grid.Column="1"
                                         IsChecked="{Binding IsDone}"
                                         VerticalOptions="Center" />
 
                                     <Label
-                                        Grid.Column="1"
+                                        Grid.Column="2"
                                         Text="{Binding Title}"
                                         Style="{StaticResource TaskLabelStyle}"
                                         FontAttributes="Bold"
@@ -61,7 +76,7 @@
                                     </Label>
 
                                     <ImageButton
-                                        Grid.Column="2"
+                                        Grid.Column="3"
                                         Source="edit.svg"
                                         Padding="0"
                                         BackgroundColor="Transparent"
@@ -72,7 +87,7 @@
                                         VerticalOptions="Center" />
 
                                     <ImageButton
-                                        Grid.Column="3"
+                                        Grid.Column="4"
                                         Source="trash.svg"
                                         Padding="0"
                                         BackgroundColor="Transparent"

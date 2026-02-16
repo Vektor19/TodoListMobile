@@ -49,7 +49,8 @@ namespace TodoListMobile.Services
 
         public Task SaveNoteAsync(TodoItem item)
         {
-            var line = $"{DateTime.UtcNow:O} | {item.Title} | {item.Description} | {item.DueDate:d} | Done: {item.IsDone}";
+            var imagePath = string.IsNullOrEmpty(item.Image) ? "No image" : item.Image;
+            var line = $"{DateTime.UtcNow:O} | {item.Title} | {item.Description} | {item.DueDate:d} | Done: {item.IsDone} | Image: {imagePath}";
             return File.AppendAllTextAsync(_notesPath, line + Environment.NewLine);
         }
     }

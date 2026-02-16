@@ -83,7 +83,7 @@
     <value>Choose due date</value>
   </data>
   <data name="CurrentTaskHeader" xml:space="preserve">
-    <value>Current task</value>
+    <value>Tasks</value>
   </data>
   <data name="HideDoneLabel" xml:space="preserve">
     <value>Hide done</value>

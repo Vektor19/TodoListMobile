@@ -19,8 +19,15 @@
 
             <Image
                 x:Name="TodoIcon"
-                Source="todolist_icon.png"
+                Source="{Binding ImageSource}"
                 Style="{StaticResource TodoIconStyle}" />
+
+            <Button
+                Text="📷 Choose Photo from Gallery"
+                Command="{Binding PickPhotoCommand}"
+                BackgroundColor="LightGray"
+                TextColor="Black"
+                Margin="0,0,0,12" />
 
             <Label
                 x:Name="WelcomeLabel"
