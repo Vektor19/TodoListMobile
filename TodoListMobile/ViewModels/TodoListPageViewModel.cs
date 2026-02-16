@@ -4,12 +4,16 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TodoListMobile.Models;
+using TodoListMobile.Services;
 
 namespace TodoListMobile.ViewModels
 {
     public class TodoListPageViewModel : BaseViewModel
     {
+        private readonly WeatherService _weatherService = new();
         private bool _hideCompleted;
+        private string _weatherText = "Loading weather...";
+        private bool _isWeatherLoading = true;
 
         public ObservableCollection<TodoItem> Items => TodoItemStore.Items;
 
@@ -33,6 +37,18 @@ namespace TodoListMobile.ViewModels
             }
         }
 
+        public string WeatherText
+        {
+            get => _weatherText;
+            set => SetProperty(ref _weatherText, value);
+        }
+
+        public bool IsWeatherLoading
+        {
+            get => _isWeatherLoading;
+            set => SetProperty(ref _isWeatherLoading, value);
+        }
+
         public TodoListPageViewModel()
         {
             EditCommand = new Command<TodoItem>(async item => await EditItemAsync(item));
@@ -45,6 +61,23 @@ namespace TodoListMobile.ViewModels
             }
 
             RefreshVisibleItems();
+            LoadWeatherAsync();
+        }
+
+        private async void LoadWeatherAsync()
+        {
+            var weather = await _weatherService.GetWeatherAsync("Kyiv");
+
+            if (weather != null)
+            {
+                WeatherText = $"{weather.City}: {weather.Temperature:F1}°C";
+            }
+            else
+            {
+                WeatherText = "Weather unavailable";
+            }
+
+            IsWeatherLoading = false;
         }
 
         private void RefreshVisibleItems()

@@ -22,6 +22,20 @@
                 Style="{StaticResource TodoIconStyle}" />
 
             <Label
+                Text="{Binding WeatherText}"
+                HorizontalTextAlignment="Center"
+                FontSize="14"
+                TextColor="Gray"
+                Margin="0,0,0,8"
+                IsVisible="{Binding IsWeatherLoading, Converter={StaticResource InvertedBoolConverter}}" />
+
+            <ActivityIndicator
+                IsRunning="{Binding IsWeatherLoading}"
+                IsVisible="{Binding IsWeatherLoading}"
+                Color="Gray"
+                Margin="0,0,0,8" />
+
+            <Label
                 x:Name="WelcomeLabel"
                 Text="{x:Static resources:AppResources.CurrentTaskHeader}"
                 Style="{StaticResource WelcomeLabelStyle}" />
